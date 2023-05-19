@@ -41,16 +41,16 @@ async function getAirplanes(req, res) {
  * POST : /airplanes/:id
  * req-body {}
  */
-// async function getAirplane(req, res) {
-//   try {
-//     const airplanes = await AirplaneService.getAirplane(req.params.id);
-//     SuccessResponse.data = airplanes;
-//     return res.status(StatusCodes.OK).json(SuccessResponse);
-//   } catch (error) {
-//     ErrorResponse.error = error;
-//     return res.status(error.statusCode).json(ErrorResponse);
-//   }
-// }
+async function getAirplane(req, res) {
+  try {
+    const airplanes = await AirplaneService.getAirplane(req.params.id);
+    SuccessResponse.data = airplanes;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    ErrorResponse.error = error;
+    return res.status(error.statusCode).json(ErrorResponse);
+  }
+}
 
 /**
  * DELETE : /airplanes/:id
@@ -70,6 +70,6 @@ async function getAirplanes(req, res) {
 module.exports = {
   createAirplane,
   getAirplanes,
-  // getAirplane,
+  getAirplane,
   // destroyAirplane,
 };
