@@ -26,16 +26,16 @@ async function createAirplane(req, res) {
  * POST : /airplanes
  * req-body {}
  */
-// async function getAirplanes(req, res) {
-//   try {
-//     const airplanes = await AirplaneService.getAirplanes();
-//     SuccessResponse.data = airplanes;
-//     return res.status(StatusCodes.OK).json(SuccessResponse);
-//   } catch (error) {
-//     ErrorResponse.error = error;
-//     return res.status(error.statusCode).json(ErrorResponse);
-//   }
-// }
+async function getAirplanes(req, res) {
+  try {
+    const airplanes = await AirplaneService.getAirplanes();
+    SuccessResponse.data = airplanes;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    ErrorResponse.error = error;
+    return res.status(error.statusCode).json(ErrorResponse);
+  }
+}
 
 /**
  * POST : /airplanes/:id
@@ -69,7 +69,7 @@ async function createAirplane(req, res) {
 
 module.exports = {
   createAirplane,
-  // getAirplanes,
+  getAirplanes,
   // getAirplane,
   // destroyAirplane,
 };
